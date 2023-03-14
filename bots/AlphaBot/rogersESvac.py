@@ -76,9 +76,9 @@ class RogersESvac:
     "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto",
     "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia",
     "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi",
-    "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala",
+    "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Gran Bretaña", "Grecia", "Guatemala",
     "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Guyana", "Haití", "Honduras",
-    "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall",
+    "Hungría", "India", "Indonesia", "Inglaterra", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall",
     "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán",
     "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano",
     "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte",
@@ -104,9 +104,9 @@ class RogersESvac:
     "Costa Rica.", "Croacia.", "Cuba.", "Dinamarca.", "Dominica.", "Ecuador.", "Egipto.",
     "El Salvador.", "Emiratos Árabes Unidos.", "Eritrea.", "Eslovaquia.", "Eslovenia.",
     "España.", "Estados Unidos.", "Estonia.", "Etiopía.", "Filipinas.", "Finlandia.", "Fiyi.",
-    "Francia.", "Gabón.", "Gambia.", "Georgia.", "Ghana.", "Granada.", "Grecia.", "Guatemala.",
+    "Francia.", "Gabón.", "Gambia.", "Georgia.", "Ghana.", "Granada.","Gran Bretaña.", "Grecia.", "Guatemala.",
     "Guinea.", "Guinea ecuatorial.", "Guinea-Bisáu.", "Guyana.", "Haití.", "Honduras.",
-    "Hungría.", "India.", "Indonesia.", "Irak.", "Irán.", "Irlanda.", "Islandia.", "Islas Marshall.",
+    "Hungría.", "India.", "Indonesia.", "Inglaterra", "Irak.", "Irán.", "Irlanda.", "Islandia.", "Islas Marshall.",
     "Islas Salomón.", "Israel.", "Italia.", "Jamaica.", "Japón.", "Jordania.", "Kazajistán.",
     "Kenia.", "Kirguistán.", "Kiribati.", "Kuwait.", "Laos.", "Lesoto.", "Letonia.", "Líbano.",
     "Liberia.", "Libia.", "Liechtenstein.", "Lituania.", "Luxemburgo.", "Macedonia del Norte.",
@@ -132,9 +132,9 @@ class RogersESvac:
     "Costa Rica!", "Croacia!", "Cuba!", "Dinamarca!", "Dominica!", "Ecuador!", "Egipto!",
     "El Salvador!", "Emiratos Árabes Unidos!", "Eritrea!", "Eslovaquia!", "Eslovenia!",
     "España!", "Estados Unidos!", "Estonia!", "Etiopía!", "Filipinas!", "Finlandia!", "Fiyi!",
-    "Francia!", "Gabón!", "Gambia!", "Georgia!", "Ghana!", "Granada!", "Grecia!", "Guatemala!",
+    "Francia!", "Gabón!", "Gambia!", "Georgia!", "Ghana!", "Granada!","Gran Bretaña!", "Grecia!", "Guatemala!",
     "Guinea!", "Guinea ecuatorial!", "Guinea-Bisáu!", "Guyana!", "Haití!", "Honduras!",
-    "Hungría!", "India!", "Indonesia!", "Irak!", "Irán!", "Irlanda!", "Islandia!", "Islas Marshall!",
+    "Hungría!", "India!", "Indonesia!", "Inglaterra!", "Irak!", "Irán!", "Irlanda!", "Islandia!", "Islas Marshall!",
     "Islas Salomón!", "Israel!", "Italia!", "Jamaica!", "Japón!", "Jordania!", "Kazajistán!",
     "Kenia!", "Kirguistán!", "Kiribati!", "Kuwait!", "Laos!", "Lesoto!", "Letonia!", "Líbano!",
     "Liberia!", "Libia!", "Liechtenstein!", "Lituania!", "Luxemburgo!", "Macedonia del Norte!",
@@ -160,9 +160,9 @@ class RogersESvac:
     "Costa Rica,", "Croacia,", "Cuba,", "Dinamarca,", "Dominica,", "Ecuador,", "Egipto,",
     "El Salvador,", "Emiratos Árabes Unidos,", "Eritrea,", "Eslovaquia,", "Eslovenia,",
     "España,", "Estados Unidos,", "Estonia,", "Etiopía,", "Filipinas,", "Finlandia,", "Fiyi,",
-    "Francia,", "Gabón,", "Gambia,", "Georgia,", "Ghana,", "Granada,", "Grecia,", "Guatemala,",
+    "Francia,", "Gabón,", "Gambia,", "Georgia,", "Ghana,", "Granada,","Gran Bretaña,", "Grecia,", "Guatemala,",
     "Guinea,", "Guinea ecuatorial,", "Guinea-Bisáu,", "Guyana,", "Haití,", "Honduras,",
-    "Hungría,", "India,", "Indonesia,", "Irak,", "Irán,", "Irlanda,", "Islandia,", "Islas Marshall,",
+    "Hungría,", "India,", "Indonesia,", "Inglaterra,", "Irak,", "Irán,", "Irlanda,", "Islandia,", "Islas Marshall,",
     "Islas Salomón,", "Israel,", "Italia,", "Jamaica,", "Japón,", "Jordania,", "Kazajistán,",
     "Kenia,", "Kirguistán,", "Kiribati,", "Kuwait,", "Laos,", "Lesoto,", "Letonia,", "Líbano,",
     "Liberia,", "Libia,", "Liechtenstein,", "Lituania,", "Luxemburgo,", "Macedonia del Norte,",
@@ -188,7 +188,7 @@ class RogersESvac:
     "¡Qué guay! ¿Fuiste en coche o cómo llegaste?"]
 
     # WIE HINGEKOMMEN
-    keywords["Transporte"] = ["avión", "Volé", "volé", "vole", "volí","Vole", "Volí", "Volamos", "Fuimos en avión", "Fui en avión", "fui en avión", "fuimos en avión", "avion",
+    keywords["Transporte"] = ["avión", "Volé", "volé", "vole", "volado", "volí","Vole", "Volí", "Volamos", "Fuimos en avión", "Fui en avión", "fui en avión", "fuimos en avión", "avion",
     "avión", "Avión", "Avion", "Fuimos en tren", "fuimos en tren", "tren", "Tren", "trén", "Trén", "Tomamos el tren", "Tomemos el tren", "tomamos el tren",
     "Fui en tren", "fui en tren", "coche", "Coche", "auto", "Auto", "bicicleta", "Bicicleta", "Bici", "bici", "bus", "Bus", "Autobus", "autobus", "autobús", "Autobús", "barco", "Barco",
     "¿Cómo has llegado hasta allí?"]
@@ -297,5 +297,14 @@ class RogersESvac:
     "Chau!", "chau!", "nos vemos!", "Bye!", "bye!"]
     answers["Fin"] = ["Todo esto me da mucha envidia. Encantado de haber charlado contigo. ¡Espero que podamos repetirlo pronto!",
     "¡Qué vacaciones más bonitas has pasado! Espero que volvamos a charlar pronto, me ha gustado mucho la conversación."]
+    answers2["Fin"] = ["Adiós", "Hasta luego", "Nos vemos"]
     remarks["Fin"] = ["Todo esto me da mucha envidia. Encantado de haber charlado contigo. ¡Espero que podamos repetirlo pronto!",
     "¡Qué vacaciones más bonitas has pasado! Espero que volvamos a charlar pronto, me ha gustado mucho la conversación."]
+
+    # fin2 = End 2
+    # keywords["Fin2"] = ["adios", "Adios", "Adiós", "adiós", "Hasta luego", "hasta luego", "Nos vemos",
+    # "Chau", "chau", "nos vemos", "Bye", "bye", "adios!", "Adiós!", "adiós!", "Hasta luego!", "hasta luego!", "Nos vemos!",
+    # "Chau!", "chau!", "nos vemos!", "Bye!", "bye!"]
+    # answers["Fin2"] = ["Adiós", "Hasta luego", "Nos vemos"]
+    # answers2["Fin2"] = ["Hasta luego!", "Nos vemos!", "Adiós!"]
+    # remarks["Fin2"] = ["Adiós", "Hasta luego", "Nos vemos"]

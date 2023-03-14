@@ -44,6 +44,8 @@ class Vacation:
         self.exp = Attribute()
         self.special = Attribute()
         self.company = Attribute()
+        # fin
+        self.end = Attribute()
 
 # preprocess_input checken. Der macht die Wörter zum Teil kaputt. Sätze noch nicht getetest
 
@@ -309,7 +311,17 @@ class Bot:
                 self.secondAnswer = True
                 self.studentVacation.special.state = 2
             if self.studentVacation.special.state == 0:
-                self.studentVacation.special.state = 1 
+                self.studentVacation.special.state = 1
+        
+        if self.vacationCase == "Fin":
+            self.talkingVac = True
+            if self.studentVacation.end.state == 2:
+                return "Ya nos hemos despedido, ¿no?"
+            if self.studentVacation.end.state == 1:
+                self.secondAnswer = True
+                self.studentVacation.end.state = 2
+            if self.studentVacation.end.state == 0:
+                self.studentVacation.end.state = 1
 
        
 
@@ -454,8 +466,9 @@ class Bot:
             
 
         elif self.studentVacation.special.state == 1:
-            self.vacationCase = "Fin"
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+                self.vacationCase = "Fin"
+                self.studentVacation.end.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
 
             
         else:
@@ -538,6 +551,8 @@ class Bot:
         elif self.question == True:
             response = random.choice(listLocalResponse) # choose randomly an answer
             self.question = False
+        elif self.vacationCase == "Fin" and self.secondAnswer == True:
+            response = random.choice(listLocalSecond)
         else:
             response = random.choice(listLocalRemarks) 
         return response
