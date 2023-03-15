@@ -61,8 +61,8 @@ class RogersES:
     # nombre = name
     keywords["Nombre"] = ["¿Cómo te llamas?", "Cómo te llamas?", "¿Como te llamas?", "Como te llamas?", "Como te llamas", "Cómo te llamas", "llamas",
     "Hola! Me llamo", "Hola, me llamo", "llamas?", "llamo", "nombre"]
-    answers["Nombre"] = ["Me llamo Laura. ¿En qué ciudad vives?", "Me llamo Pascal. ¿En qué ciudad vives?", "Me llamo Roberto. ¿En qué ciudad vives?"]
-    remarks["Nombre"] = ["Me llamo Laura. ¿En qué ciudad vives?", "Me llamo Pascal. ¿En qué ciudad vives?", "Me llamo Roberto. ¿En qué ciudad vives?"]
+    answers["Nombre"] = ["Me llamo Juan. ¿En qué ciudad vives?", "Me llamo María. ¿En qué ciudad vives?", "Me llamo Carlos. ¿En qué ciudad vives?"]
+    remarks["Nombre"] = ["Me llamo Juan. ¿En qué ciudad vives?", "Me llamo María. ¿En qué ciudad vives?", "Me llamo Carlos. ¿En qué ciudad vives?"]
 
     # Residencia = Residence
     keywords["Residencia"] = ["De dónde eres", "eres?", "vives?", "donde vives", "¿En qué ciudad vives?", "En qué ciudad vives", " soy de", "Soy de", "vivo en", "Vivo en", "viviendo",

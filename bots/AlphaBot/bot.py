@@ -120,12 +120,19 @@ class Bot:
             inputSplit.remove("se")
             inputSplit.remove("llama")
             inputSplit.remove("en")
-            inputSplit.remove("Español?")
+            inputSplit.remove("español?")
             inputSplit = " ".join(inputSplit)
             translator= Translator(to_lang="es", from_lang="de")
-            return "En Español se dice <<" + translator.translate(inputSplit) + ">>"
+            return "En español se dice <<" + translator.translate(inputSplit) + ">>"
 
-            
+        if "¿Qué significa" in inputNotPrep:
+            inputSplit.remove("¿Qué") 
+            inputSplit.remove("significa")
+            inputSplit.remove("en")
+            inputSplit.remove("alemán?")
+            inputSplit = " ".join(inputSplit)
+            translator= Translator(to_lang="de", from_lang="es")
+            return "En alemán se dice <<" + translator.translate(inputSplit) + ">>"
             #return inputSplit
 
         # 3. check if input is a question:
@@ -356,54 +363,54 @@ class Bot:
 
        
         
-        elif self.studentVacation.exp.state == 1: # and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Especial"
-            self.studentVacation.special.state = 1
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.exp.state == 1: # and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Especial"
+        #     self.studentVacation.special.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
         
-        elif self.studentVacation.activity.state == 1: # and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Experiencias"
-            self.studentVacation.exp.state = 1
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.activity.state == 1: # and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Experiencias"
+        #     self.studentVacation.exp.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
 
-        elif self.studentVacation.weather.state == 1: #and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Actividad"
-            self.studentVacation.activity.state = 1
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.weather.state == 1: #and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Actividad"
+        #     self.studentVacation.activity.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
 
-        elif self.studentVacation.company.state == 1: #and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Tiempo"
-            self.studentVacation.weather.state = 1
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.company.state == 1: #and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Tiempo"
+        #     self.studentVacation.weather.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
         
-        elif self.studentVacation.date.state == 1: #and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Compañía"
-            self.studentVacation.company.state = 1
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.date.state == 1: #and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Compañía"
+        #     self.studentVacation.company.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
         
-        elif self.studentVacation.transporte == 1: #and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Fecha"
-            self.studentVacation.date.state = 1
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.transporte == 1: #and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Fecha"
+        #     self.studentVacation.date.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
 
-        elif self.studentVacation.place == 1: #and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Transporte"
-            self.studentVacation.transporte = 1
-            response = self.chooseVacationResponse(self.vacationCase,0)
+        # elif self.studentVacation.place.state == 1: #and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Transporte"
+        #     self.studentVacation.transporte.state = 1
+        #     response = self.chooseVacationResponse(self.vacationCase,0)
         
-        elif self.studentVacation.residence == 1: #and self.ytu == True:
-            self.ytu = False
-            self.vacationCase = "Ubicación"
-            self.studentVacation.place = 1
-            self.talkingVac = True
-            response = self.chooseVacationResponse(self.vacationCase, 0)
+        # elif self.studentVacation.residence.state == 1: #and self.ytu == True:
+        #     self.ytu = False
+        #     self.vacationCase = "Ubicación"
+        #     self.studentVacation.place.state = 1
+        #     self.talkingVac = True
+        #     response = self.chooseVacationResponse(self.vacationCase, 0)
 
         # if self.studentVacation.place.state == 1:
         # if self.studentVacation.transporte.state == 1:
@@ -485,48 +492,102 @@ class Bot:
                 response = self.chooseVacationResponse(self.vacationCase, 0)
 
             
+        # if input doesnt get recognized: first, sorry, I dont understand. Second, just keep going in the script
         elif self.studentVacation.sorry.state == 0:
             self.studentVacation.sorry.state = 1
             response = "Lo siento. ¿Podrías reescribir esto o preguntarme algo nuevo? No estoy seguro si te entendí"
             
 
         elif self.studentVacation.sorry.state == 1:
-            if self.talkingVac == False: #and self.smallCase != "Residencia":
+            self.studentVacation.sorry.state = 0
+            
+            if self.studentVacation.exp.state == 1: # and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Especial"
+                self.studentVacation.special.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+        
+            elif self.studentVacation.activity.state == 1: # and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Experiencias"
+                self.studentVacation.exp.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+
+            elif self.studentVacation.weather.state == 1: #and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Actividad"
+                self.studentVacation.activity.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+
+            elif self.studentVacation.company.state == 1: #and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Tiempo"
+                self.studentVacation.weather.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+        
+            elif self.studentVacation.date.state == 1: #and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Compañía"
+                self.studentVacation.company.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+        
+            elif self.studentVacation.transporte == 1: #and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Fecha"
+                self.studentVacation.date.state = 1
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+
+            elif self.studentVacation.place.state == 1: #and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Transporte"
+                self.studentVacation.transporte.state = 1
+                response = self.chooseVacationResponse(self.vacationCase,0)
+        
+            elif self.studentVacation.residence.state == 1: #and self.ytu == True:
+                self.ytu = False
+                self.vacationCase = "Ubicación"
+                self.studentVacation.place.state = 1
+                self.talkingVac = True
+                response = self.chooseVacationResponse(self.vacationCase, 0)
+            # if self.talkingVac == False: #and self.smallCase != "Residencia":
 
             
-                if self.studentVacation.residence.state == 1:
-                    response = "Háblame de tus últimas vacaciones"
-                    self.talkingVac = True
+                # if self.studentVacation.residence.state == 1:
+                #     self.talkingVac = True
+                #     #response = "Háblame de tus últimas vacaciones"
+                    
                 
 
-                elif self.studentVacation.name.state == 1:
+            elif self.studentVacation.name.state == 1:
                 
-                    self.smallCase = "Residencia"
-                    self.studentVacation.residence.state = 1
-                    self.talkingVac = True
-                    response = self.chooseSmallResponse(self.smallCase, 0)
-                    #response = ""
+                self.talkingVac = True
+                self.smallCase = "Residencia"
+                self.studentVacation.residence.state = 1
+                    
+                response = self.chooseSmallResponse(self.smallCase, 0)
+                #response = ""
 
-                elif self.studentVacation.hru.state == 1:
+            elif self.studentVacation.hru.state == 1:
                 
-                    self.smallCase = "Nombre"
-                    self.studentVacation.name.state = 1
-                    self.talkingVac = True
-                    response = self.chooseSmallResponse(self.smallCase, 0)
+                self.smallCase = "Nombre"
+                self.studentVacation.name.state = 1
+                    
+                response = self.chooseSmallResponse(self.smallCase, 0)
 
 
-                elif self.justHola == True:
-                    self.smallCase = "Hola"
-                    response = self.chooseSmallResponse(self.smallCase, 0)
+            elif self.justHola == True:
+                self.smallCase = "Hola"
+                response = self.chooseSmallResponse(self.smallCase, 0)
 
-                elif self.studentVacation.hru.state == 0:
+            elif self.studentVacation.hru.state == 0:
                 
-                    # if self.justHola == True:
-                    #     response = "Hola de nuevo"
+                # if self.justHola == True:
+                #     response = "Hola de nuevo"
                 
-                    self.smallCase = "Como estas"
-                    self.studentVacation.hru.state = 1
-                    response = self.chooseSmallResponse(self.smallCase, 0)
+                self.smallCase = "Como estas"
+                self.studentVacation.hru.state = 1
+                response = self.chooseSmallResponse(self.smallCase, 0)
+                
             
         else:
             response = "Lo siento. ¿Podrías reescribir esto o preguntarme algo nuevo? No estoy seguro si te entendí"
