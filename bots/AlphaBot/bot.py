@@ -46,6 +46,7 @@ class Vacation:
         self.company = Attribute()
         # fin
         self.end = Attribute()
+        self.sorry = Attribute()
 
 # preprocess_input checken. Der macht die Wörter zum Teil kaputt. Sätze noch nicht getetest
 
@@ -74,6 +75,7 @@ class Bot:
         self.talkingVac = False
         self.justHola = False
 
+        #self.sorry = 0
         self.session = None # copied from Eliza doesnt hurt even if I dont use sessions lateR?
 
 
@@ -216,11 +218,13 @@ class Bot:
             if self.studentVacation.name.state == 1:
                 return "Ya te dije mi nombre"
             if self.studentVacation.name.state == 0:
-                self.studentVacation.name.state = 1 
+                self.studentVacation.name.state = 1
+                #self.talkingVac = True
 
         if self.smallCase == "Residencia":
-            self.talkingVac = True
+            
             if self.studentVacation.residence.state == 1:
+                self.talkingVac = True
                 return "Creo que mencioné donde vivo"
             if self.studentVacation.residence.state == 0:
                 self.studentVacation.residence.state = 1 
@@ -332,8 +336,12 @@ class Bot:
         if self.swearCase != "":
             response = self.chooseSwearResponse(self.swearCase, 0)
 
-        elif self.smallCase != "" and self.vacationCase == "":
+        elif self.smallCase != "" and self.vacationCase == "" and self.talkingVac == False:
             response = self.chooseSmallResponse(self.smallCase, 0)
+            #self.talkingVac = True
+
+        elif self.smallCase != "" and self.vacationCase == "" and self.talkingVac == True:
+            response = "Háblame de tus últimas vacaciones. ¿En qué país pasaste tus últimas vacaciones?"
 
         elif self.smallCase == "" and self.vacationCase != "":
             response = self.chooseVacationResponse(self.vacationCase, 0)
@@ -432,36 +440,42 @@ class Bot:
         # there is a word we cannot process, maybe just an answer like a name, without reasking.
         # we are still in small talk phase, which means we can pick up another small talk topic
         # needs work...
-        elif self.talkingVac == False:
+        # elif self.talkingVac == False: #and self.smallCase != "Residencia":
 
             
-
-            if self.studentVacation.name.state == 1:
+        #     if self.studentVacation.residence.state == 1:
+        #         response = "Háblame de tus últimas vacaciones"
+        #         self.talkingVac = True
                 
-                self.smallCase = "Residencia"
-                self.studentVacation.residence.state = 1
-                response = self.chooseSmallResponse(self.smallCase, 0)
-                #response = ""
 
-            elif self.studentVacation.hru.state == 1:
+        #     elif self.studentVacation.name.state == 1:
                 
-                self.smallCase = "Nombre"
-                self.studentVacation.name.state = 1
-                response = self.chooseSmallResponse(self.smallCase, 0)
+        #         self.smallCase = "Residencia"
+        #         self.studentVacation.residence.state = 1
+        #         self.talkingVac = True
+        #         response = self.chooseSmallResponse(self.smallCase, 0)
+        #         #response = ""
 
-
-            elif self.justHola == True:
-                self.smallCase = "Hola"
-                response = self.chooseSmallResponse(self.smallCase, 0)
-
-            elif self.studentVacation.hru.state == 0:
+        #     elif self.studentVacation.hru.state == 1:
                 
-                # if self.justHola == True:
-                #     response = "Hola de nuevo"
+        #         self.smallCase = "Nombre"
+        #         self.studentVacation.name.state = 1
+        #         self.talkingVac = True
+        #         response = self.chooseSmallResponse(self.smallCase, 0)
+
+
+        #     elif self.justHola == True:
+        #         self.smallCase = "Hola"
+        #         response = self.chooseSmallResponse(self.smallCase, 0)
+
+        #     elif self.studentVacation.hru.state == 0:
                 
-                self.smallCase = "Como estas"
-                self.studentVacation.hru.state = 1
-                response = self.chooseSmallResponse(self.smallCase, 0)
+        #         # if self.justHola == True:
+        #         #     response = "Hola de nuevo"
+                
+        #         self.smallCase = "Como estas"
+        #         self.studentVacation.hru.state = 1
+        #         response = self.chooseSmallResponse(self.smallCase, 0)
             
             
 
@@ -471,9 +485,51 @@ class Bot:
                 response = self.chooseVacationResponse(self.vacationCase, 0)
 
             
+        elif self.studentVacation.sorry.state == 0:
+            self.studentVacation.sorry.state = 1
+            response = "Lo siento. ¿Podrías reescribir esto o preguntarme algo nuevo? No estoy seguro si te entendí"
+            
+
+        elif self.studentVacation.sorry.state == 1:
+            if self.talkingVac == False: #and self.smallCase != "Residencia":
+
+            
+                if self.studentVacation.residence.state == 1:
+                    response = "Háblame de tus últimas vacaciones"
+                    self.talkingVac = True
+                
+
+                elif self.studentVacation.name.state == 1:
+                
+                    self.smallCase = "Residencia"
+                    self.studentVacation.residence.state = 1
+                    self.talkingVac = True
+                    response = self.chooseSmallResponse(self.smallCase, 0)
+                    #response = ""
+
+                elif self.studentVacation.hru.state == 1:
+                
+                    self.smallCase = "Nombre"
+                    self.studentVacation.name.state = 1
+                    self.talkingVac = True
+                    response = self.chooseSmallResponse(self.smallCase, 0)
+
+
+                elif self.justHola == True:
+                    self.smallCase = "Hola"
+                    response = self.chooseSmallResponse(self.smallCase, 0)
+
+                elif self.studentVacation.hru.state == 0:
+                
+                    # if self.justHola == True:
+                    #     response = "Hola de nuevo"
+                
+                    self.smallCase = "Como estas"
+                    self.studentVacation.hru.state = 1
+                    response = self.chooseSmallResponse(self.smallCase, 0)
+            
         else:
             response = "Lo siento. ¿Podrías reescribir esto o preguntarme algo nuevo? No estoy seguro si te entendí"
-        
 
         # its just vacation talk
         return response

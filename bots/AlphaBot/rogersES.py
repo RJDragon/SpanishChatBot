@@ -53,18 +53,20 @@ class RogersES:
     # como estas = how are you
     keywords["Como estas"] = ["que tal", "que tal?", "Que tal", "Qué tal", "Qué tal?", "¿Qué tal?", "qué tal", "qué tal?", "Cómo estás?", "¿Cómo estás?", "Cómo estás", "cómo estás?", "cómo estás", "como estas",
     "como estas?", "Como estas", "Como estas?", "Cómo te va?", "¿Cómo te va?", "Cómo te va", "cómo te va?", "como te va?", "cómo te va", "como te va", "Cómo te sientes?", "Cómo te sientes?",
-    "como te sientes", "como te sientes?", "¿Cómo está usted?", ]
+    "como te sientes", "como te sientes?", "¿Cómo está usted?", "bien", "bien.", "bien!" "un poco", "fenomenal", "fenomenal.", "fenomenal!", "agradecido", "preocupado", "genial",
+    "agradecido,", "preocupado,", "genial,", "contento", "contenta", "contento.", "contenta.", "contento,", "contenta,", "motivado", "motivado,", "motivada", "motivada,"]
     answers["Como estas"] = ["Muy bien, gracias. ¿Cómo te llamas?", "Bien, gracias. ¿Cómo te llamas?", "Bien, aunque un poco cansado. ¿Cómo te llamas?"]
     remarks["Como estas"] = ["Muy bien. ¿Cómo te llamas?", "Bien. ¿Cómo te llamas?", "¿Unque un poco cansado? ¿Cómo te llamas?"]
 
     # nombre = name
     keywords["Nombre"] = ["¿Cómo te llamas?", "Cómo te llamas?", "¿Como te llamas?", "Como te llamas?", "Como te llamas", "Cómo te llamas", "llamas",
-    "Hola! Me llamo", "Hola, me llamo"]
+    "Hola! Me llamo", "Hola, me llamo", "llamas?", "llamo", "nombre"]
     answers["Nombre"] = ["Me llamo Laura. ¿En qué ciudad vives?", "Me llamo Pascal. ¿En qué ciudad vives?", "Me llamo Roberto. ¿En qué ciudad vives?"]
     remarks["Nombre"] = ["Me llamo Laura. ¿En qué ciudad vives?", "Me llamo Pascal. ¿En qué ciudad vives?", "Me llamo Roberto. ¿En qué ciudad vives?"]
 
     # Residencia = Residence
-    keywords["Residencia"] = ["De dónde eres", "eres?", "vives?", "donde vives", "¿En qué ciudad vives?", "En qué ciudad vives"]
+    keywords["Residencia"] = ["De dónde eres", "eres?", "vives?", "donde vives", "¿En qué ciudad vives?", "En qué ciudad vives", " soy de", "Soy de", "vivo en", "Vivo en", "viviendo",
+                              "Viviendo", "residencia", "ciudad"]
     answers["Residencia"] = ["Yo soy de Madrid, la capital de España. Es un buen lugar para ir de vacaciones. ¿En qué país pasaste tus últimas vacaciones?", 
     "Yo soy de Barcelona, una ciudad linda en España. Es un buen lugar para ir de vacaciones. ¿En qué país pasaste tus últimas vacaciones?",
     "Yo soy de Guadalajara, una ciudad grande en México. Es un buen lugar para ir de vacaciones. ¿En qué país pasaste tus últimas vacaciones?",
